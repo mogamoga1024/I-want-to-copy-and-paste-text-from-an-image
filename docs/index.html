@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>エラーメッセージがコピペできないあなたのためのサイト</title>
+  <style>
+  canvas {
+    background-color: #7fffff;
+  }
+  progress {
+    display: block;
+  }
+  #result {
+    font-size: 32px;
+    border: solid 1px black;
+  }
+  </style>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/2.1.4/tesseract.min.js'></script>
+</head>
+
+<body>
+  <canvas></canvas>
+  <progress max="1" value="0"></progress>
+  <div id="result">
+    コピペしたい文章の画像をCtrl+Vで張り付け<br>
+    もしくは画像ファイルをドラッグ＆ドロップ
+  </div>
+  <p>
+    ※ 解析できる言語は英語のみです。
+  </p>
+  <script src="main.js"></script>
+</body>
+
+</html>
