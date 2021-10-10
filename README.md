@@ -1,0 +1,1 @@
+# I-want-to-copy-and-paste-text-from-an-image
