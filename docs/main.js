@@ -76,6 +76,7 @@ const analysis = function(canvas) {
 
     const worker = Tesseract.createWorker({
         logger: function(m) {
+            console.log(m);
             if (m.status === "recognizing text") {
                 progress.value = m.progress;
             }
@@ -86,7 +87,12 @@ const analysis = function(canvas) {
         await worker.loadLanguage("eng");
         await worker.initialize("eng");
         const { data: { text } } = await worker.recognize(canvas.toDataURL());
-        result.innerHTML = text.replace(/\r?\n/g, "<br>");
+        if (text.trim() === "") {
+            result.innerHTML = "文字を認識できませんでした。";
+        }
+        else {
+            result.innerHTML = text.replace(/\r?\n/g, "<br>");
+        }
         await worker.terminate();
         isAnalyzing = false;
     })();
